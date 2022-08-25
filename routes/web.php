@@ -25,4 +25,5 @@ Route::get('/dataperjalanan/create', [DataPerjalananController::class, 'create']
 Route::post('/dataperjalanan/store', [DataPerjalananController::class, 'store']);
 Route::get('/dataperjalanan/{id}/edit', [DataPerjalananController::class, 'edit']);
 Route::put('/dataperjalanan/{id}', [DataPerjalananController::class, 'update']);
+Route::delete('/dataperjalanan/{id}', [DataPerjalananController::class, 'destroy']);
 

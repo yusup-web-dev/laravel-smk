@@ -23,8 +23,22 @@ class DataPerjalananController extends Controller
         
     }
 
-    public function edit($id_perjalanan){
-            $dataPerjalanan = CatatanPerjalanan::find($id_perjalanan);
+    public function edit($id){
+            $dataPerjalanan = CatatanPerjalanan::find($id);
             return view('dataperjalanan.edit', compact(['dataPerjalanan']));
     }
+
+    public function update($id, Request $request){
+        $dataPerjalanan = CatatanPerjalanan::find($id);
+        $dataPerjalanan->update($request->except(['_token ', 'submit']));
+        return redirect('/dataperjalanan');
+        
+    }
+
+    public function destroy($id){
+        $dataPerjalanan = CatatanPerjalanan::find($id);
+        $dataPerjalanan->delete();
+        return redirect('/dataperjalanan');
+    }
+
 }
